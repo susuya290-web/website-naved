@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - MyWebsite</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="body-main"> 
+    <nav class="navbar glassmorphism">
+        <i class="fas fa-rocket"></i><div class="nav-brand">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="about.html">AboutMe</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><button id="logout-button" class="btn btn-logout">Logout</button></li>
+        </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-toggle" />
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 id="hero-title">Selamat Datang di MyWebsite</h1>
+        <p> Anda berhasil login ke MyWebsite cihuyy🥳🎉</p>
+        <a href="#content" class="btn btn-secondary">Lihat Konten</a>
+    </header>
+
+    <main class="container" id="content">
+        <div class="card glassmorphism">
+            <h2><i class="fas fa-magic"></i> Fitur Yang Ada!</h2>
+            <p>Website ini ditenagai dengan Glassmorphism, Dark Mode, dan animasi yang lebih halus. Coba klik tombol di pojok kanan atas untuk mengubah tema!</p>
+        </div>
+        
+        <div class="card glassmorphism">
+            <h2><i class="fas fa-compass"></i> Mulai Menjelajah</h2>
+            <p>Gunakan navigasi di atas untuk menemukan berbagai hal menarik. Kamu bisa mengenal Aku lebih baik di halaman 'About', mencoba game seru di 'Game', atau terhubung langsung melalui halaman 'Contact'.</p>
+        </div>
+
+        <div class="card glassmorphism">
+            <h2>Tentang Halaman Ini</h2>
+            <p>Ini adalah halaman utama MyWebsite. Anda bisa meletakkan apa saja di sini. MASIH BINGUNG MAU NGASIH APA DISINI</p>
+        </div>
+            
+        <div class="card glassmorphism video-meme-card">
+            <h2><i class="fas fa-laugh-squint"></i> Sedikit Hiburan!</h2>
+            <p>Sebuah kejutan kecil untuk mencerahkan harimu.</p>
+            
+            <div class="video-wrapper">
+                <video id="meme-player" class="meme-video" loop autoplay muted playsinline>
+                    <source src="WhatsApp Video 2025-11-20 at 11.33.00.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung tag video.
+                </video>
+                <div class="video-controls">
+                    <button id="play-pause-btn" class="btn btn-video-control"><i class="fas fa-pause"></i></button>
+                    <button id="mute-unmute-btn" class="btn btn-video-control"><i class="fas fa-volume-mute"></i></button>
+                </div>
+            </div>
+            
+        </div>
+
+        </main>
+
+    <footer class="footer">
+        <p>© 2025 MyWebsite. Hak Cipta Tidak Dilindungi.</p>
+    </footer>
+
+    <script src="main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = sessionStorage.getItem('username');
+            if (username) {
+                const heroTitle = document.getElementById('hero-title');
+                if (heroTitle) {
+                    heroTitle.textContent = `Selamat Datang, ${username}!`;
+                }
+            }
+
+            // --- Logika Video Meme ---
+            const memePlayer = document.getElementById('meme-player');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const muteUnmuteBtn = document.getElementById('mute-unmute-btn');
+
+            if (memePlayer) { // Pastikan elemen video ada
+                // Play/Pause
+                playPauseBtn.addEventListener('click', () => {
+                    if (memePlayer.paused) {
+                        memePlayer.play();
+                        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    } else {
+                        memePlayer.pause();
+                        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    }
+                });
+
+                // Mute/Unmute
+                muteUnmuteBtn.addEventListener('click', () => {
+                    if (memePlayer.muted) {
+                        memePlayer.muted = false;
+                        muteUnmuteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    } else {
+                        memePlayer.muted = true;
+                        muteUnmuteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

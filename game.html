@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game - MyWebsite</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="body-main">
+
+    <nav class="navbar glassmorphism">
+        <i class="fas fa-rocket"></i><div class="nav-brand">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">AboutMe</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="game.html" class="active">Game</a></li>
+            <li><button id="logout-button" class="btn btn-logout">Logout</button></li>
+        </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-toggle" />
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="card glassmorphism game-container-memory">
+            <h2>Game Memory Card🧠</h2>
+            <div class="memory-game-stats">
+                <span id="memory-moves-count">Moves: 0</span>
+                <button id="memory-restart-button" class="btn btn-secondary">Mulai Ulang</button>
+            </div>
+            <div id="memory-game-board" class="memory-game-board"></div>
+            <p id="memory-win-message" class="game-message" style="display: none;"></p>
+        </div>
+
+        <div class="card glassmorphism game-container-number">
+            <h2>Game Tebak Angka❗</h2>
+            <p>Saya memikirkan angka antara 1 dan 100. Bisakah kamu menebaknya?</p>
+            
+            <div class="game-input-area">
+                <input type="number" id="number-guess-input" placeholder="Masukkan tebakanmu..." min="1" max="100">
+                <button id="number-guess-button" class="btn">Tebak!</button>
+            </div>
+            
+            <p id="number-game-message" class="game-message">Semoga berhasil!</p>
+            <p id="number-guess-count" class="guess-count">Jumlah tebakan: 0</p>
+            
+            <button id="number-restart-button" class="btn btn-secondary" style="display: none;">Main Lagi</button>
+        </div>
+        
+        <div class="card glassmorphism game-container-number">
+            <p>Klik tombol di bawah ini untuk bermain ribuan game seru!</p>
+
+        <a href="https://www.crazygames.com/" target="_blank" rel="noopener noreferrer" class="game-button">
+            Mulai Main di CrazyGames!
+        </a>          
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 MyWebsite. Hak Cipta Tidak Dilindungi.</p>
+    </footer>
+
+    <script src="main.js"></script> <script src="memory-game.js"></script>
+    <script src="game.js"></script> 
+</body>
+</html>

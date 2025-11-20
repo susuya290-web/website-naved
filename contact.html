@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MyWebsite</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="body-main"> <nav class="navbar glassmorphism">
+        <i class="fas fa-rocket"></i><div class="nav-brand">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">AboutMe</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li> <li><a href="game.html">Game</a></li>
+            <li><button id="logout-button" class="btn btn-logout">Logout</button></li>
+        </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-toggle" />
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Terhubung Dengan Aku</h1>
+        <p>Temukan Aku di platform favorit Kamu.</p>
+    </header>
+
+    <main class="container">
+        <div class="card glassmorphism contact-social-card">
+
+            <h2>Media SosialKu😆</h2>
+            <p>Klik tombol di bawah ini untuk terhubung langsung dengan Aku.</p>
+
+            <div class="social-button-group">
+                <a href="https://instagram.com/naved_aja" target="_blank" class="btn btn-social btn-instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                
+                <a href="https://tiktok.com/@navedaja" target="_blank" class="btn btn-social btn-tiktok">
+                    <i class="fab fa-tiktok"></i> TikTok
+                </a>
+                
+                <a href="https://wa.me/6285706525682" target="_blank" class="btn btn-social btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <p>© 2025 MyWebsite. Hak Cipta Tidak Dilindungi.</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
