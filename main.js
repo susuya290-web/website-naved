@@ -53,4 +53,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// ... (kode main.js sebelumnya) ...
+
+/* ==========================================
+   LOGIKA JAM DIGITAL
+   ========================================== */
+function updateClock() {
+    const timeElement = document.getElementById('clock-time');
+    const dateElement = document.getElementById('clock-date');
+    
+    // Hanya jalankan jika elemen jam ada di halaman ini (Home)
+    if (timeElement && dateElement) {
+        const now = new Date();
+        
+        // Format Waktu (HH:MM:SS)
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+        
+        // Format Tanggal (Hari, Tanggal Bulan Tahun)
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        // Gunakan 'id-ID' untuk bahasa Indonesia
+        dateElement.textContent = now.toLocaleDateString('id-ID', options);
+    }
+}
+
+// Jalankan fungsi setiap 1 detik (1000ms)
+setInterval(updateClock, 1000);
+
+// Jalankan sekali saat halaman dimuat agar tidak menunggu 1 detik
+updateClock();
+
 
