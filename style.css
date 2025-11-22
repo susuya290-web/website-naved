@@ -689,3 +689,34 @@ input:checked + .slider:before {
     font-size: 0.9rem;
 }
 
+/* ===================================================
+   WIDGET JAM DIGITAL
+=================================================== */
+.digital-clock-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.clock-time {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px var(--primary-color); /* Efek Neon */
+    font-family: 'Courier New', monospace; /* Font ala hacker/tech */
+    line-height: 1;
+}
+
+.clock-date {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .clock-time {
+        font-size: 2.5rem;
+    }
+}
