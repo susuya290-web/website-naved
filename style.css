@@ -1,0 +1,785 @@
+/* style.css - Versi Super Keren */
+
+/* -- Import Font -- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* -- Variabel Warna (Light & Dark) -- */
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --danger-color: #e74c3c;
+    --success-color: #2ecc71;
+    --border-radius: 12px;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --transition: all 0.3s ease;
+
+    /* Light Mode */
+    --bg-color: #f0f2f5;
+    --card-bg-color: rgba(255, 255, 255, 0.65);
+    --text-color: #333;
+    --heading-color: #1a1a2e;
+    --border-color: rgba(255, 255, 255, 0.18);
+    --blur-effect: blur(10px);
+    --hero-overlay: rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode {
+    /* Dark Mode */
+    --bg-color: #1a1a2e;
+    --card-bg-color: rgba(25, 25, 46, 0.65);
+    --text-color: #e4e6eb;
+    --heading-color: #fff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --hero-overlay: rgba(0, 0, 0, 0.6);
+}
+
+/* -- Reset Dasar -- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* Update bagian ini di style.css */
+
+.body-main {
+    /* Background keren dengan animasi */
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    background-attachment: fixed; /* Agar bg tetap saat discroll */
+}
+
+/* Tambahkan keyframes ini di bagian bawah file css atau dekat .body-main */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+}
+
+/* -- Animasi -- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes slideInUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* -- Utilitas Tombol -- */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+}
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* -- Efek Glassmorphism -- */
+.glassmorphism {
+    background: var(--card-bg-color);
+    box-shadow: var(--shadow);
+    backdrop-filter: var(--blur-effect);
+    -webkit-backdrop-filter: var(--blur-effect);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+/* -- Halaman Login (Centered Card) -- */
+
+.login-container-centered {
+    display: flex;
+    flex-direction: column; /* Membuat brand title di atas card */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.login-brand-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff; /* Teks putih di atas gradien */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-out;
+}
+.login-brand-title .fa-rocket {
+    margin-right: 10px;
+    transform: rotate(-45deg);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding: 2.5rem;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.login-card h2 {
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+}
+
+.login-card p {
+    margin-bottom: 2rem;
+}
+
+/* Menggunakan style input-group yang sudah ada */
+.input-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8); /* Sedikit transparan */
+    color: #333;
+    transition: var(--transition);
+}
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
+}
+
+.login-card .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.error-message { color: var(--danger-color); margin-top: 1rem; min-height: 1.2rem; }
+.login-info { font-size: 0.9rem; color: #777; margin-top: 1rem; }
+
+
+/* Responsif untuk login-card */
+@media (max-width: 768px) {
+    /* Hapus style split-screen lama */
+
+    /* Style baru tidak perlu banyak diubah karena sudah 
+       menggunakan max-width, tapi kita bisa kurangi padding */
+    .login-card {
+        padding: 2rem 1.5rem;
+    }
+    .login-brand-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* -- Navbar (Halaman Utama) -- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 10px; /* Beri jarak dari atas */
+    z-index: 100;
+    width: 90%;
+    margin: 10px auto 0; /* Otomatis di tengah */
+    animation: fadeIn 0.5s ease-out;
+}
+.nav-brand {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+.nav-links li { margin-left: 1.5rem; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    transition: var(--transition);
+    padding: 5px 0;
+    position: relative;
+}
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+.nav-links a:hover:after,
+.nav-links a.active:after {
+    width: 100%;
+}
+.btn-logout {
+    background-image: none;
+    background-color: var(--danger-color);
+    padding: 8px 16px;
+}
+
+/* -- Dark Mode Toggle Switch -- */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+.theme-switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+.slider:before {
+    position: absolute;
+    content: "\f185"; /* Ikon Matahari */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    color: #f39c12;
+    text-align: center;
+    line-height: 18px;
+}
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+input:checked + .slider:before {
+    transform: translateX(25px);
+    content: "\f186"; /* Ikon Bulan */
+    color: var(--primary-color);
+}
+
+/* -- Hero Section -- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background-image: linear-gradient(var(--hero-overlay), var(--hero-overlay)), url('https://source.unsplash.com/1600x900/?nature,technology');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+    animation: fadeIn 1s ease-out;
+}
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+    animation: slideInUp 0.6s ease-out;
+}
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    animation: slideInUp 0.7s ease-out;
+}
+.hero .btn {
+    animation: slideInUp 0.8s ease-out;
+}
+
+/* -- Konten Utama & Card -- */
+.container {
+    max-width: 1000px;
+    margin: -5rem auto 2rem auto; /* Tarik ke atas menimpa hero */
+    padding: 1.5rem;
+    z-index: 10;
+    position: relative;
+}
+
+/* Update atau Tambahkan di style.css */
+.card {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    animation: slideInUp 0.8s ease-out;
+    
+    /* Tambahan transisi halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efek saat mouse di atas card */
+.card:hover {
+    transform: translateY(-10px); /* Naik ke atas 10px */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Bayangan makin tebal */
+    border-color: rgba(255, 255, 255, 0.5); /* Border makin terang */
+}
+
+
+/* -- Footer & Social Links -- */
+.footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+.social-links-icons {
+    margin-top: 1rem;
+}
+.social-links-icons a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.75rem;
+    transition: var(--transition);
+}
+.social-links-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* ===================================================
+   STYLING UNTUK KEDUA GAME
+=================================================== */
+
+/* --- Umum untuk Game --- */
+.game-message {
+    font-size: 1.25rem;
+    font-weight: 600;
+    min-height: 2rem;
+    margin-top: 1.5rem;
+}
+.game-message.success { color: var(--success-color); }
+.game-message.error { color: var(--danger-color); }
+
+.guess-count {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- Game 1: Memory Card --- */
+.game-container-memory {
+    text-align: center;
+}
+.memory-game-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.memory-game-stats .btn-secondary {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--border-color);
+}
+.memory-game-stats .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.memory-game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+.memory-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: 10px;
+}
+.memory-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.memory-card-back {
+    background-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+}
+.memory-card-front {
+    background-color: #fff;
+    color: var(--primary-color);
+    transform: rotateY(180deg);
+}
+.memory-card.is-flipped {
+    transform: rotateY(180deg);
+}
+.memory-card.is-matched {
+    transform: rotateY(180deg);
+    opacity: 0.7;
+}
+.memory-card.is-matched .memory-card-front {
+    box-shadow: 0 0 0 4px var(--success-color);
+    color: var(--success-color);
+}
+#memory-win-message {
+    color: var(--success-color);
+}
+
+/* --- Game 2: Tebak Angka --- */
+.game-container-number {
+    text-align: center;
+}
+.game-input-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+#number-guess-input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+    width: 200px;
+    background: rgba(255,255,255,0.8);
+    color: #333;
+}
+
+
+/* -- Responsif -- */
+@media (max-width: 768px) {
+    .split-login-container {
+        grid-template-columns: 1fr;
+    }
+    .login-showcase {
+        min-height: 250px;
+    }
+    .navbar {
+        flex-direction: column;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+    .nav-links {
+        margin-top: 1rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .container {
+        margin-top: -3rem;
+    }
+}
+
+/* ===================================================
+   STYLING BARU HALAMAN KONTAK (SOSIAL MEDIA)
+=================================================== */
+
+.contact-social-card {
+    text-align: center; /* Menengahkan konten */
+    padding: 2.5rem 1.5rem;
+}
+
+.contact-social-card p {
+    margin-bottom: 2rem;
+}
+
+.social-button-group {
+    display: flex;
+    flex-direction: column; /* Tombol tersusun ke bawah */
+    gap: 1.25rem; /* Jarak antar tombol */
+    max-width: 400px; /* Batasi lebar tombol */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-social {
+    /* Mengambil style .btn, tapi dengan kustomisasi */
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 20px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    color: #fff;
+    background-image: none; /* Hapus gradien default */
+    text-align: center;
+}
+.btn-social:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn-social i {
+    margin-right: 12px; /* Jarak logo dan teks */
+    font-size: 1.3rem;
+    vertical-align: middle; /* Pastikan ikon dan teks sejajar */
+}
+
+/* --- Warna Brand --- */
+
+.btn-instagram {
+    /* Gradien Instagram keren */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.btn-tiktok {
+    background-color: #010101; /* Hitam TikTok */
+    /* Bonus: efek border 2 warna tiktok */
+    border: 2px solid #FE2C55;
+    box-shadow: 0 0 0 2px #25F4EE;
+}
+.btn-tiktok:hover {
+    background-color: #111;
+}
+
+.btn-whatsapp {
+    background-color: #25D366; /* Hijau WhatsApp */
+}
+.btn-whatsapp:hover {
+    background-color: #29e270;
+}
+
+
+/* Tombol Link ke CrazyGames */
+        .game-button {
+            display: inline-block;
+            background-color: #e60073; /* Warna khas CrazyGames */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .game-button:hover {
+            background-color: #bf005f;
+        }
+
+/* ===================================================
+   STYLING UNTUK KARTU VIDEO MEME
+=================================================== */
+
+.video-meme-card {
+    text-align: center;
+    padding-bottom: 3rem; /* Beri ruang ekstra untuk kontrol */
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 700px; /* Batasi lebar video */
+    margin: 1.5rem auto 0 auto; /* Di tengah dengan margin atas */
+    border-radius: var(--border-radius);
+    overflow: hidden; /* Pastikan video tidak keluar dari batas */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.meme-video {
+    width: 100%;
+    height: auto;
+    display: block; /* Hapus spasi di bawah video */
+}
+
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5); /* Background kontrol transparan */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Selalu tampil */
+}
+
+.video-controls .btn-video-control {
+    background-image: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 50px; /* Tombol bulat */
+}
+
+.video-controls .btn-video-control:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsif untuk video */
+@media (max-width: 768px) {
+    .video-meme-card {
+        padding-bottom: 2rem;
+    }
+    .video-controls {
+        padding: 8px;
+    }
+    .video-controls .btn-video-control {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===================================================
+   STYLING UNTUK FOTO PROFIL DI HALAMAN ABOUT
+=================================================== */
+
+.profile-card {
+    text-align: center; /* Tengahkan foto dan teks */
+}
+
+.profile-image {
+    width: 150px;  /* Lebar foto */
+    height: 150px; /* Tinggi foto (sama agar bulat sempurna) */
+    object-fit: cover; /* Memastikan foto tidak gepeng */
+    border-radius: 50%; /* Membuat foto jadi bulat */
+    border: 4px solid var(--primary-color); /* Bingkai keren */
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05) rotate(5deg); /* Efek goyang dikit saat di-hover */
+}
+
+.profile-role {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+/* ===================================================
+   WIDGET JAM DIGITAL
+=================================================== */
+.digital-clock-container {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+.clock-time {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px var(--primary-color); /* Efek Neon */
+    font-family: 'Courier New', monospace; /* Font ala hacker/tech */
+    line-height: 1;
+}
+
+.clock-date {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+    .clock-time {
+        font-size: 2.5rem;
+    }
+}
+
+/* Animasi Getar untuk Login Gagal */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* ===================================================
+   CUSTOM SCROLLBAR (BIAR MAKIN KEREN)
+=================================================== */
+
+/* Lebar scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track (Latar belakang scrollbar) */
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); 
+}
+
+/* Handle (Batang yang bergerak) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary-color), var(--secondary-color)); 
+    border-radius: 6px;
+    border: 3px solid rgba(0, 0, 0, 0); /* Trik agar terlihat melayang */
+    background-clip: content-box;
+}
+
+/* Saat di-hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+    border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: content-box;
+}
