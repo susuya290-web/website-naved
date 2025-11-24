@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MyWebsite</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="body-main"> <nav class="navbar glassmorphism">
+        <i class="fas fa-rocket"></i><div class="nav-brand">MyWebsite</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html" class="active">AboutMe</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><button id="logout-button" class="btn btn-logout">Logout</button></li>
+        </ul>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="dark-mode-toggle">
+                <input type="checkbox" id="dark-mode-toggle" />
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Tentang DiriKu</h1>
+        <p>Sedikit cerita di balik layar dan link penting lainnya.</p>
+    </header>
+
+    <main class="container" id="content">
+        
+        <div class="card glassmorphism profile-card">
+            <img src="20251122_172056.jpg" 
+                 alt="Foto Profil" 
+                 class="profile-image">
+            
+            <h2>Halo, Saya Devan! 👋</h2>
+            <p class="profile-role"> Developer & Creator</p>
+            <p>Saya adalah orang di balik website ini. Saya siswa kelas XI Jurusan Teknik Komputer dan Jaringan dari SMK Ma'Arif Ngoro. Saya suka coding, bermain game, dan membuat hal-hal keren di internet.</p>
+        </div>
+        
+        <div class="card glassmorphism">
+            <h2><i class="fas fa-bullseye"></i> MisiKu</h2>
+            <p>MisiKu adalah menyediakan platform website statis yang keren, interaktif, dan mudah digunakan sebagai portofolio atau proyek pribadi.</p>
+        </div>
+
+        <div class="card glassmorphism">
+            <h2><i class="fas fa-rocket"></i> MyKisah</h2>
+            <p><i>"Aku ingin mencintaimu dengan sederhana,dengan kata yang tak sempat diucapkan kayu kepada api yang menjadikannya abu."</i></p>
+            <p><i>"Aku ingin mencintaimu dengan sederhana,dengan isyarat yang tak sempat disampaikan awan kepada hujan yang menjadikannya tiada."
+                <p>-Sapardi Djoko Damono-
+            </i></p>
+        </div>
+            
+            <div class="card glassmorphism music-player-card">
+            <div class="player-layout">
+                <div class="cover-wrapper">
+                    <h2>My Favorit Song</h2>
+                    <img src="Cover of Best Friend by Rex Orange County.jpg" alt="Cover Lagu" id="music-cover" onerror="this.src='https://cdn-icons-png.flaticon.com/512/10784/10784289.png'">
+                </div>
+                
+                <div class="player-controls-area">
+                    <div class="song-info">
+                        <h3 id="song-title">Best Friend</h3>
+                        <p id="artist-name">Req Orange County</p>
+                    </div>
+
+                    <audio id="my-audio" src="Best-Friend.MP3"></audio>
+
+                    <div class="custom-buttons">
+                        <button id="prev-btn" class="btn-control-mini"><i class="fas fa-backward"></i></button>
+                        <button id="play-pause-btn" class="btn-control-main"><i class="fas fa-play"></i></button>
+                        <button id="next-btn" class="btn-control-mini"><i class="fas fa-forward"></i></button>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card glassmorphism" style="text-align: center;">
+            <h2><i class="fas fa-link"></i> Link Rahasia</h2>
+            <p>JANGAN DIBUKA PLISS</p>
+            
+            <div class="social-button-group" style="margin-top: 1.5rem;">
+                
+                <a href="https://htmlku.my.id/intinya/mulai.php?id=1763259940781" 
+                   target="_blank" 
+                   class="btn btn-weblink"> ☠Noo☠
+                </a>
+                
+                <a href="https://htmlku.com/dariku/play/" target="_blank" class="btn btn-weblink">
+                    ⚠️Tidak⚠️
+                </a>
+                
+                <a href="https://htmlku.com/maunanyakamu/play" target="_blank" class="btn btn-weblink">
+                   ❗Jangan❗ 
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 MyWebsite. Hak Cipta Tidak Dilindungi.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
